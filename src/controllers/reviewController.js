@@ -68,12 +68,13 @@ const reviewer = async function(req, res) {
         }
 
         const reviewGenerated = await reviewModel.create(data)
-        const obj = await bookModel.findOneAndUpdate({ _id: bookId }, { $inc: { reviews: 1 } })
+      obj = await bookModel.findOneAndUpdate({ _id: bookId }, { $inc: { reviews: 1 } })
 
-        const {...data1 } = checkBookIdExist
-        data1._doc.reviewsData = reviewGenerated
+        //const {...data1 } = checkBookIdExist
+        //data1._doc.reviewsData = reviewGenerated
 
-        return res.status(201).send({ status: true, msg: "reviewed", data: data1._doc })
+        //return res.status(201).send({ status: true, msg: "reviewed", data: data1._doc })
+        return res.status(201).send({ status: true, msg: "reviewed", data:reviewGenerated })
 
 
 
